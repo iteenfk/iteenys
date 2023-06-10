@@ -2,29 +2,36 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>計算機アプリ</title>
+    <title>iteen 時間変換アプリ</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>iteen 電卓</h1>
-    <div class="cal">
-        <input type="text" id="x" placeholder="0">
+    <h1>時間変換アプリ</h1>
+    <div class="main">
+        <p>時間：</p>
+        <input type="number" id="time">
         <br>
-        <input type="text" id="y" placeholder="0">
+        <p>単位</p>
+        <select id="unit">
+                <option value="秒">秒</option>
+                <option value="分">分</option>
+                <option value="時間">時間</option>
+                <option value="日">日</option>
+                <option value="週">週</option>
+                <option value="月">月</option>
+                <option value="年">年</option>
+        </select>
         <br>
-        <button onclick="A()">+</button>
-        <button onclick="S()">-</button>
-        <button onclick="M()">x</button>
-        <button onclick="D()">÷</button>
-        <button onclick="C()">c</button>
-        <br>
-        <button onclick="t()">三角形の面積</button>
-        <br>
-        <input type="text" id="z" placeholder="0" readonly>
+        <button onclick="A()">変換する</button><br><br>
+        <span id="seconds"></span><br>
+        <span id="minutes"></span><br>
+        <span id="hours"></span><br>
+        <span id="days"></span><br>
+        <span id="weeks"></span><br>
+        <span id="months"></span><br>
+        <span id="years"></span><br>
     </div>
-
-    <script src="js/main.js"></script>
+<script  src="js/main.js"></script>
 </body>
 </html>
