@@ -1,28 +1,48 @@
-<!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ミュージックプレイヤー</title>
-    <link rel="stylesheet" href="css/style.css">
+<title>九州の県の天気予報</title>
+<style>
+.main{
+border:2px dotted red;
+width:300px;
+text-align:center;
+padding-top:20px;
+margin:auto;
+border-radius:20px;
+}
+h1{
+font-size:20px;
+text-align:center;
+}
+</style>
 </head>
 <body>
-    <div class="main">
-        <audio id="player" src="test.mp3"></audio>
-        <h1>iTeen 音楽player</h1>
-        <div class="btn">
-            <button onclick="play()">再生</button>
-            <button onclick="pause()">一時停止</button>
-            <button onclick="stop()">停止</button>
-        </div>
-        <br>
-        <div class="in">
-            <input type="range" id="slider" oninput="volume()" min="0" max="100" value="50">
-            <p id="vol">50%</p>
-        </div>
-    </div>
+<h1>九州の県の天気予報</h1>
+<div class="main">
+<select id="in" onchange="A()">
+<option value="">九州の天気予報</option>
+<option value="1">福岡県</option>
+<option value="2">佐賀県</option>
+<option value="3">長崎県</option>
+</select>
+<p id="out">九州の天気予報</p>
+</div>
 
-    <script src="js/main.js"></script>
+<script>
+function A(){
+if (document.getElementById("in").value == "1"){
+document.getElementById("out").innerHTML = `<a href="https://weathernews.jp/onebox/tenki/fukuoka/" target="_blank">福岡の天気予報</a>`;
+}
 
+if (document.getElementById("in").value == "2"){
+document.getElementById("out").innerHTML = `<a href="https://weathernews.jp/onebox/tenki/saga/" target="_blank">佐賀の天気予報</a>`;
+}
+
+if (document.getElementById("in").value == "3"){
+document.getElementById("out").innerHTML = `<a href="https://weathernews.jp/onebox/tenki/nagasaki/" target="_blank">長崎の天気予報</a>`;
+}
+}
+</script>
 </body>
 </html>
+
