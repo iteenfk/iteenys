@@ -1,48 +1,69 @@
 <html>
 <head>
-<title>九州の県の天気予報</title>
+<title>貯金買い物アプリ</title>
 <style>
-.main{
-border:2px dotted red;
+.x{
+border:1px solid red;
 width:300px;
 text-align:center;
-padding-top:20px;
+padding:10px;
 margin:auto;
-border-radius:20px;
+border-radius:100px;
 }
+
+.y{
+text-align:center;
+width:300px;
+margin:auto;
+}
+
 h1{
-font-size:20px;
+font-size:15px;
 text-align:center;
 }
 </style>
 </head>
 <body>
-<h1>九州の県の天気予報</h1>
-<div class="main">
-<select id="in" onchange="A()">
-<option value="">九州の天気予報</option>
-<option value="1">福岡県</option>
-<option value="2">佐賀県</option>
-<option value="3">長崎県</option>
-</select>
-<p id="out">九州の天気予報</p>
+<h1>貯金買い物アプリ</h1>
+<div class="x">
+貯金:<input type="number" value="" id=in1>
+<button onclick="B1()">入金</button>
+<br>
+貯金合計:<span id=out1>0</span>
+</div>
+<br>
+<div class="x">
+買い物:<input type="number" value="" id=in2>
+<button onclick="B2()">出金</button>
+<br>
+出金合計:<span id=out2>0</span>
+</div>
+<br>
+<div class=y>
+残り金額:<span id="zan">0</span>
 </div>
 
 <script>
-function A(){
-if (document.getElementById("in").value == "1"){
-document.getElementById("out").innerHTML = `<a href="https://weathernews.jp/onebox/tenki/fukuoka/" target="_blank">福岡の天気予報</a>`;
+let tot1 = 0;
+let tot2 = 0;
+
+function B1(){
+if (document.getElementById("in1").value != ""){
+tot1 += parseInt(document.getElementById("in1").value);
+document.getElementById("out1").textContent = tot1;
+document.getElementById("in1").value = "";
+}
 }
 
-if (document.getElementById("in").value == "2"){
-document.getElementById("out").innerHTML = `<a href="https://weathernews.jp/onebox/tenki/saga/" target="_blank">佐賀の天気予報</a>`;
-}
+function B2(){
+if (document.getElementById("in2").value != ""){
+tot2 += parseInt(document.getElementById("in2").value);
+document.getElementById("out2").textContent = tot2;
+document.getElementById("in2").value = "";
 
-if (document.getElementById("in").value == "3"){
-document.getElementById("out").innerHTML = `<a href="https://weathernews.jp/onebox/tenki/nagasaki/" target="_blank">長崎の天気予報</a>`;
+document.getElementById("zan").textContent = tot1 - tot2;
 }
 }
 </script>
 </body>
 </html>
-
